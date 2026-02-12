@@ -30,20 +30,6 @@
   src: url(Fonts/Segoe\ UI\ Regular.ttf);
 }
 
-/*----------------------RESPONZIVNOST----------------------*/
-
-@media screen and (min-width: 1440px) { 
-  #main{
-    max-width: 1440px;
-    margin: 0 auto;
-    background-color: #FFFCE8;
-  }
-}
-
-
-  /*ZELEEEEEEEEEEEEEENOOOOOOOOOOOOOO*/
-
-
 /*----------------------HEADER----------------------*/
 
 #navigacija {
@@ -149,6 +135,35 @@
   }
 }
 
+.hamburger {
+    background: none;
+    border: none;
+    color: #ffdf00;
+    position: absolute;
+    top: 0;
+    left: 10%;
+    z-index: 999;
+    cursor: pointer;
+    outline: none;
+    font-size: 1.4em;
+    line-height: 45px;
+    padding: 25px 0;
+}
+
+.hamburger-z {
+    background: none;
+    border: none;
+    color: #544E28;
+    position: absolute;
+    top: 0;
+    left: 10%;
+    z-index: 999;
+    cursor: pointer;
+    outline: none;
+    font-size: 1.4em;
+    line-height: 45px;
+    padding: 25px 0;
+}
 
 /*----------------------MENI OVERLAY----------------------*/
 
@@ -256,14 +271,14 @@
 
 h1 {
   font-family:  Anton;
-  font-size: 200px;
+  font-size: clamp(100px, 16.67vw, 200px);  
   text-transform: uppercase;
   color: #ffdf00;
 }
 
 h2 {
   font-family:  Anton;
-  font-size: 118px;
+  font-size: clamp(59px, 9.83vw, 118px);  
   text-transform: uppercase;
   color: #ffdf00;
 }
@@ -271,19 +286,19 @@ h2 {
 h3 {
   font-family: Lato;
   text-transform: uppercase;
-  font-size: 36px;
+  font-size: clamp(24px, 3vw, 36px);
 }
 
 h4{
   color: #FFFCE8;
   font-family: Lato;
-  font-size: 30px;
+  font-size: clamp(20px, 2.5vw, 30px);  
   text-transform: uppercase;
 }
 
 p {
   font-family: Segoe;
-  font-size: 26px;
+  font-size: clamp(16px, 2.17vw, 26px);
 }
 
 /*----------------------POCETNA----------------------*/
@@ -357,13 +372,21 @@ p {
 }
 
 #pocetna-dno h4 {
-  margin: 100px 100px;
+  padding: 20px 100px;
   text-align: left;
 }
 
 #pocetna-dno h4:hover {
   text-decoration: underline;
   text-underline-offset: 8px;
+}
+
+h4 a{
+  color: #FFFCE8;
+  font-family: Lato;
+  font-size: clamp(20px, 2.5vw, 30px);
+  text-transform: uppercase;
+  text-decoration: none;
 }
 
 /*----------------------O MENI----------------------*/
@@ -386,17 +409,18 @@ p {
 #omeni h1 {
   margin: 0;
   max-width: 1400px;
-  padding: 130px 0 0 160PX;
+  padding-left: 160px;
   line-height: 1;
+  padding-top: 10%;
 }
 
 #omeni p {
   margin: 0;
-  width: 950px;
   padding: 0 160PX;
   text-align: justify;
   color: #FFFCE8;
-  font-size: 20px;
+  font-size: clamp(14px, 1.67vw, 20px);
+  max-width: 1000px;
 }
 
 /*----------------------GALERIJA----------------------*/
@@ -412,7 +436,7 @@ p {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;
-  gap: 60px 40px;
+  gap: 30px 40px;
 }
 
 #galerija-all h1, #galerija-all h4 {
@@ -478,6 +502,67 @@ p {
   margin-bottom: 10px;
 }
 
+/*----------------------REŽIRANA, MODNA I REKLAMNA FOTOGRAFIJA----------------------*/
+
+.rezirana, .reklamna, .modna {
+  background-color: #FFFCE8;
+}
+
+.rekmodrez {
+  padding: 10%;
+  padding-top: 0;
+}
+
+.strelica {
+  margin: 20px 0;
+}
+
+.strelica a {
+  display: inline-block;
+  font-size: 24px;
+  font-family: Lato;
+  color: #5a5434;
+  text-decoration: none;
+  padding: 15px 15px;
+  transition: all 0.3s ease;
+}
+
+.strelica a:hover {
+  color: #3a3424;
+  transform: translateX(-5px);
+}
+
+.rekmodrez h1, .rekmodrez h2 {
+  color: #544E28;
+  line-height: 1;
+}
+
+.rekmodrez h1 {
+  font-size: clamp(55px, 13vw, 220px);
+}
+.rekmodrez h2 {
+  font-size: clamp(32px, 7.5vw, 130px);
+}
+
+.row-rekmodrez {
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.column-rekmodrez {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.column-rekmodrez img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 /*----------------------AUTOPORTRET SVAKODNEVNICE----------------------*/
 
 #autoportret-vrh {
@@ -490,15 +575,20 @@ p {
 #autoportret-naslov {
   margin: 0;
   position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: 100px;
+  text-align: left;
+  bottom: 10%;
   max-width: 1400px;
   width: 100%;
-  padding: 20px 80px;
-  box-sizing: border-box;
-  z-index: 4;
   line-height: 1;
+  left: 10%;
+}
+
+#autoportret-naslov h1 {
+  font-size: clamp(55px, 13vw, 220px);
+}
+
+#autoportret-naslov h2 {
+  font-size: clamp(32px, 7.5vw, 130px);
 }
 
 #autoportret-sredina {
@@ -550,8 +640,7 @@ p {
   max-width: 1400px;
   width: 100%;
   line-height: 1;
-  right: 50;
-  transform: translateX(0);
+  right: 10%;
 }
 
 #hekly-sredina {
@@ -599,60 +688,6 @@ p {
   height: auto;
 }
 
-/*----------------------REŽIRANA, MODNA I REKLAMNA FOTOGRAFIJA----------------------*/
-
-.rezirana, .reklamna, .modna {
-  background-color: #FFFCE8;
-}
-
-.rekmodrez {
-  padding: 10%;
-  padding-top: 0;
-}
-
-.strelica {
-  margin: 20px 0;
-}
-
-.strelica a {
-  display: inline-block;
-  font-size: 24px;
-  font-family: Lato;
-  color: #5a5434;
-  text-decoration: none;
-  padding: 15px 15px;
-  transition: all 0.3s ease;
-}
-
-.strelica a:hover {
-  color: #3a3424;
-  transform: translateX(-5px);
-}
-
-.rekmodrez h1, .rekmodrez h2 {
-  color: #544E28;
-  line-height: 1;
-}
-
-.row-rekmodrez {
-  display: flex;
-  gap: 15px;
-  margin-top: 30px;
-}
-
-.column-rekmodrez {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.column-rekmodrez img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
 /*----------------------KONTAKT----------------------*/
 
 #kontakt {
@@ -662,18 +697,19 @@ p {
 #leva-strana {
   flex: 1;
   min-width: 300px;
+  padding-left: clamp(20px, 5vw, 60px);
 }
 
 #leva-strana h2 {
   font-family: Anton;
-  font-size: 68px;
+  font-size: clamp(36px, 7vw, 68px);
   color: #544E28;
   margin-bottom: 5px;
 }
 
 #leva-strana h5 {
   font-family: Segoe;
-  font-size: 38px;
+  font-size: clamp(24px, 4vw, 38px);
   color: #544E28;
   font-weight: normal;
   line-height: 1.2;
@@ -681,7 +717,7 @@ p {
 
 #leva-strana p {
   font-family: Lato-thin;
-  font-size: 20px;
+  font-size: clamp(16px, 2vw, 20px);
   color: #544E28;
   margin-top: 25px;
   margin-bottom: 5px;
@@ -694,7 +730,7 @@ p {
   background-color: transparent;
   padding: 8px 0;
   font-family: Lato-thin;
-  font-size: 20px;
+  font-size: clamp(16px, 2vw, 20px);
   outline: none;
 }
 
@@ -705,7 +741,7 @@ p {
   background-color: transparent;
   padding: 8px 0;
   font-family: Lato-thin;
-  font-size: 20px;
+  font-size: clamp(16px, 2vw, 20px);
   outline: none;
 }
 
@@ -719,26 +755,26 @@ p {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 18px;
+  font-size: clamp(14px, 2vw, 18px);
   color: #544E28;
   margin-bottom: 5px;
   position: relative;
 }
 
 #kontakt-forma .material-icons {
-  font-size: 24px;
+  font-size: clamp(20px, 2.5vw, 24px);
   color: #544E28;
   line-height: 1;
 }
 
 #desna-strana textarea {
   width: 100%;
-  min-height: 300px;
+  min-height: clamp(200px, 30vw, 300px);
   border: 3px solid #544E28;
   background-color: #FFFCE8;
   padding: 15px;
   font-family: Lato;
-  font-size: 20px;
+  font-size: clamp(16px, 2vw, 20px);
   resize: vertical;
   outline: none;
   font-family: Lato-thin;
@@ -755,7 +791,7 @@ p {
   border: 3px solid #544E28;
   padding: 2px 20px;
   font-family: Anton;
-  font-size: 20px;
+  font-size: clamp(16px, 2vw, 20px);
   cursor: pointer;
   color: #544E28;
 }
@@ -767,8 +803,8 @@ p {
 
 #kontakt-spoljni {
   max-width: 1400px;
-  margin: 80px auto;
-  padding: 0 100px;
+  margin: clamp(40px, 8vw, 80px) auto;
+  padding: 0 clamp(20px, 10vw, 100px);
   display: grid;
   grid-template-columns: auto 1fr;
   align-items: center;
@@ -777,7 +813,7 @@ p {
 #kontakt-mreze {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: clamp(15px, 3vw, 30px);
 }
 
 .kontakt-ikonica {
@@ -787,14 +823,13 @@ p {
   margin-left: -38px;
   margin-top: 30px;
 }
-
 #kontakt-forma {
   border: 3px solid #544E28;
-  padding: 60px 60px 60px 0px;
+  padding: clamp(30px, 6vw, 60px) clamp(30px, 6vw, 60px) clamp(30px, 6vw, 60px) 0px;
   background-color: #FFFCE8;
   display: flex;
   flex-wrap: wrap;
-  gap: 40px;
+  gap: clamp(20px, 4vw, 40px);
   max-width: 1200px;
   margin: 0;
 }
@@ -805,7 +840,7 @@ footer{
   color: #ffdf00;
   line-height: 30px;
   background-color: #544E28;
-  height: 140px;
+  min-height: 140px;
   position: relative;
 }
 
@@ -820,7 +855,7 @@ footer{
 
 .footer-levo p, .footer-desno p {
   font-family: Lato-thin;
-  font-size: 20px;
+  font-size: clamp(14px, 1.67vw, 20px);
 }
 
 .footer-sredina, .footer-levo, .footer-desno {
@@ -832,9 +867,284 @@ footer{
   color: #ffdf00;
   text-decoration: none;
   font-family: Lato-thin;
-  font-size: 20px;
+  font-size: clamp(14px, 1.67vw, 20px);
 }
 
 .footer-sredina a:hover {
   text-decoration: underline;
+}
+
+
+
+/*----------------------RESPONZIVNOST----------------------*/
+
+@media screen and (min-width: 1400px) { 
+  #main{
+    max-width: 1400px;
+    margin: 0 auto;
+    background-color: #FFFCE8;
+  }
+}
+
+@media screen and (min-width: 991px) {
+    .hamburger {
+      display: none;
+    }
+
+    .hamburger-z {
+      display: none;
+    }
+
+     .omeni-tekst p {
+      display: none;
+     }
+}
+
+/*VECI EKRANI*/
+@media screen and (max-width:1400px){
+ #omeni p {
+    max-width: 800px;
+    padding-bottom: 10px;
+ }
+}
+
+/*MANJI EKRANI*/
+
+@media screen and (max-width:1200px) {
+  #galerija-all {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  #galerija-naslov {
+    grid-column: 1;
+    grid-row: 1;
+    padding-bottom: 0;
+  }
+  
+  #galerija-intro {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  
+  #rezirana {
+    grid-column: 1;
+    grid-row: 3;
+  }
+  
+  #modna {
+    grid-column: 1;
+    grid-row: 4;
+  }
+  
+  #reklamna { 
+    grid-column: 1;
+    grid-row: 5;
+  }
+
+  #omeni {
+    background-image: url(Slike/om2.jpg) !important;
+    background-position: right !important;
+    background-size: auto 700px;
+  }
+
+  #omeni h1, #omeni p {
+    padding-left: 10%;
+  }
+
+  #desna-strana {
+    padding-left: 20%;
+  }
+}
+
+/*TABLETI*/
+
+@media screen and (max-width: 991px) {
+  .nav-item:nth-child(1),
+  .nav-item:nth-child(2),
+  .nav-item:nth-child(4),
+  .nav-item:nth-child(5){
+    display: none;
+  }
+  
+  .meni-slika {
+    display: none !important;
+  }
+  
+  #logo {
+    padding: 0;
+    margin: 0 auto;
+    left: 0;
+    white-space: nowrap;
+  }
+
+  .nav-item-z:nth-child(1),
+  .nav-item-z:nth-child(2),
+  .nav-item-z:nth-child(4),
+  .nav-item-z:nth-child(5){
+    display: none;
+  }
+
+  #logo-z {
+    padding: 0;
+    margin: 0 auto;
+    left: 0;
+    white-space: nowrap;
+  }
+
+  .close-dugme {
+    top: 20px;
+    left: 10% !important;
+  }
+
+  .meni-sadrzaj {
+    flex-direction: column;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .meni-nav {
+    padding-left: 10% !important;
+    padding-right: 20px;
+    padding-top: 300px;
+    gap: 25px;
+    width: 100%;
+  }
+
+  .meni-link {
+    width: 100%;
+    max-width: 100%;
+    font-size: 16px;
+  }
+
+  #rezirana img, #modna img, #reklamna img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+  }
+
+  #galerija-naslov {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  
+  #galerija-intro {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  
+  #rezirana {
+    grid-column: 1;
+    grid-row: 3;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  #modna {
+    grid-column: 1;
+    grid-row: 4;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+    gap: 10px;
+  }
+  
+  #reklamna {
+    grid-column: 1;
+    grid-row: 5;
+    flex-direction: column; 
+    align-items: center;
+    gap: 10px;
+  }
+  
+  #rezirana img, #modna img, #reklamna img {
+    width: 100%; 
+    max-width: 400px; 
+    height: auto;
+  }
+  
+  .tekst-w {
+    width: 100%; 
+    max-width: 400px; 
+  }
+
+  .kontakt-ikonica {
+    width: clamp(40px, 9vw, 70px);
+    height: clamp(40px, 9vw, 70px);
+    margin-left: clamp(-23px, -5vw, -38px);
+    margin-top: clamp(15px, 4vw, 30px);
+    }
+/********************************************************************************************/
+  #omeni {
+    background-position: right;
+    height: 700px;
+    background-color: #544E28;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  #omeni h1 {
+    padding-left: 10%;
+    bottom: 10%;
+    margin-bottom: 0;
+    position: absolute;
+  }
+  
+  #omeni p {
+    display: none;
+  }
+  
+  .omeni-tekst {
+    background-color: #FFFCE8;
+    padding: 15% 20%;
+  }
+  
+  .omeni-tekst p {
+    color: #544E28;
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: clamp(16px, 2.1vw, 26px);
+    font-family: Segoe;
+  }
+}
+
+/*TELEFONI*/
+
+@media screen and (max-width: 600px) {
+  #pocetna-vrh {
+    background-position: top center !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  #imePrezime {
+    bottom: 45px !important;
+    left:45% !important;
+  }
+
+  .row-rekmodrez {
+    flex-direction: column;
+  }
+  
+  .column-rekmodrez {
+    width: 100%;
+  }
+  
+  .rekmodrez {
+   gap: 15px;
+  }
+
+  .row-h {
+    flex-direction: column;
+  }
+
+  .column-h {
+    width: 100%;
+  }
+
+  #hekly-dno {
+    gap: 15px;
+  }
 }
