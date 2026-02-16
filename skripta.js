@@ -39,3 +39,31 @@ if (closeBtn) {
         document.body.style.overflow = 'auto';
     });
 }
+
+
+// MODAL ZA KONTAKT FORMU //
+const modal = document.getElementById('modal-uspeh');
+const forma = document.querySelector('#kontakt-forma');
+
+if (forma && modal) {
+    const closeBtn = document.querySelector('.modal-close');
+    
+    forma.addEventListener('submit', function(e) {
+        e.preventDefault();
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden'; // Blokira scroll
+        forma.reset();
+    });
+    
+    closeBtn.addEventListener('click', function() {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto'; // Vraća scroll
+    });
+    
+    window.addEventListener('click', function(e) {
+        if (e.target == modal) {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Vraća scroll
+        }
+    });
+}
